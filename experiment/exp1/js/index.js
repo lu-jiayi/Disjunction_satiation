@@ -126,13 +126,9 @@ console.log(flat_list);
 
 
 
-const flat_list_replaced = flat_list.map((integer) => {
-  const dictionaryItem = all_stimuli.find((item) => item.unique_id === integer);
-  //console.log(dictionaryItem);
-  return dictionaryItem ? dictionaryItem: null;
-});
+const flat_list_replaced = flat_list.map((integer) => all_stimuli.find((item) => item.unique_id === integer));
 
-console.log(flat_list_replaced);
+//console.log(flat_list_replaced);
 
 
 

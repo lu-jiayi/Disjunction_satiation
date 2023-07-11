@@ -93,7 +93,7 @@ setwd(this.dir)
 
 cbPalette = c("#d55e00", "#009e74","#e69d00","#cc79a7", "#0071b2")
 d <- read.csv("pilot_cleaned.csv")
-
+d$block <- d$trial_sequence_total - (d$trial_sequence_total %% 11)
 nd = d %>%
   mutate(condition_alt = fct_recode(condition_alt,"Clear Alternative"="alt","No Alternative"="no_alt", "Grammatical Disjunction"="gram", "Good Fillers"="filler_good", "Bad Fillers"="filler_bad"))
  

@@ -131,6 +131,9 @@ filtered_trial_means <- trial_means %>%
   filter(condition_alt != "Good Fillers" & condition_alt != "Bad Fillers")%>%
   mutate(condition_loc = coalesce(na_if(condition_loc, ""), "congruent"))
 
+notrial_filtered_means <- filtered_trial_means %>%
+  group_by(condition_alt, condition_loc, condition_cop)%>%
+  summarise(mean_response = mean(response))
 ggplot(filtered_trial_means, aes(x = condition_alt, y = response, fill = condition_loc)) +
   geom_bar(stat = "identity", position = "dodge") +
   scale_fill_manual(values = cbPalette) +
